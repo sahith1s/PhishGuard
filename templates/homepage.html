@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>PhishGuard</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='styles/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-container img {
+        width: 100px; /* Adjust as needed */
+        height: auto; /* Maintain aspect ratio */
+      }
+
+      .brand h1 {
+        margin: 0; /* Remove default margin */
+      }
+
+      .tagline {
+        text-align: center;
+        flex-grow: 1; /* Allows it to take remaining space */
+      }
+    </style>
+    <link
+      rel="icon"
+      href="static\images\log2.png"
+      type="image/png"
+      style="max-width: 100; height: auto"
+    />
+  </head>
+  <body class="home">
+    {% if not status %} {% set popup_head ="url status" %} {% set popup_body =
+    body %} {%include 'popup.html' %}
+    <script>
+      openPopup();
+    </script>
+    {% endif %}
+
+    <header>
+      <div class="logo-container">
+        <img src="image1.jpg" alt="" />
+      </div>
+      <div class="brand">
+        <a href="/logout">
+          <h1><span>P</span>hish <span>G</span>uard</h1>
+        </a>
+      </div>
+      <h1>Check for Phishing Websites</h1>
+    </header>
+
+    <main>
+      <!-- Add an ID to the form for easy targeting in JavaScript -->
+      <p
+        style="
+          position: absolute;
+          left: 10px;
+          top: 93px;
+          height: 100vh;
+          font-size: 38px;
+        "
+      >
+        <span style="color: crimson">W</span>elcome
+        <span style="color: crimson">{{username[0]}}</span>{{username[1:]}}
+      </p>
+      <form id="phishingForm" action="/homepage" method="post">
+        <div class="input-container">
+          <label for="url">Enter a URL:</label>
+          <input
+            type="text"
+            name="url"
+            id="url"
+            placeholder="Enter website address here"
+            required
+          />
+        </div>
+
+        <button type="button" id="predict-button">Check for Phishing</button>
+      </form>
+    </main>
+
+    <!-- Loading spinner wrapper -->
+    <div class="loader-wrapper" id="loaderWrapper">
+      <div class="loader"></div>
+      <div class="loading-message">
+        <h1>Please wait, while we are analyzing the website......</h1>
+      </div>
+    </div>
+
+    <div class="alert hide">
+      <span class="fas fa-exclamation-circle"></span>
+      <span class="msg">Warning: Please enter a valid URL</span>
+      <div class="close-btn">
+        <span class="fas fa-times"></span>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Phishing Detector</p>
+    </footer>
+
+    <script>
+      // JavaScript to handle form submission and show/hide loading spinner
+      document.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("phishingForm");
+        var loaderWrapper = document.getElementById("loaderWrapper");
+
+        document
+          .getElementById("predict-button")
+          .addEventListener("focus", function () {
+            // Show the loading spinner
+            loaderWrapper.style.display = "flex";
+            form.submit();
+          });
+      });
+    </script>
+
+    {% if warning_condition == "yes" %}
+    <!-- Display popup with not a valid URL message -->
+    <script>
+      $(".alert").addClass("show");
+      $(".alert").removeClass("hide");
+      $(".alert").addClass("showAlert");
+
+      setTimeout(function () {
+        $(".alert").removeClass("show");
+        $(".alert").addClass("hide");
+        $.post("/update_warning");
+      }, 5000);
+
+      $(".close-btn").click(function () {
+        $(".alert").removeClass("show");
+        $(".alert").addClass("hide");
+      });
+    </script>
+    {% endif %}
+  </body>
+</html>

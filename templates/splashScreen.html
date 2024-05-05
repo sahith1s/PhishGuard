@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PhishGuard</title>
+    <link
+      rel="icon"
+      href="static\images\log2.png"
+      type="image/png"
+      style="max-width: 100; height: auto"
+    />
+  </head>
+  <style>
+    h1 {
+      display: inline-block;
+      margin: 0;
+    }
+    @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    :root {
+      --clr-1: #052b2f;
+      --clr-2: #073438;
+      --clr-3: #ffffff;
+      --clr-4: #013220;
+      --clr-5: #637c54;
+    }
+
+    body {
+      background: var(--clr-2);
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      overflow: hidden; /* Hide overflow to prevent scrollbars */
+    }
+
+    .card {
+      width: auto; /* Adjust width based on content */
+      height: auto; /* Adjust height based on content */
+      padding: 1rem; /* Add padding for better spacing */
+      background: var(--clr-1);
+      border-radius: 0.5rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2rem; /* Adjust font size */
+      font-weight: bold;
+      overflow: hidden; /* Hide overflow to prevent scrollbars */
+      animation: pulse-border 8s infinite; /* Animate border */
+    }
+
+    .card span {
+      color: white; /* Change the color of P, G, and D letters */
+      opacity: 0; /* Initially hide Phish, Guard, and D */
+    }
+
+    .card span:nth-child(1) {
+      animation: show-letter 2s forwards; /* Animation to reveal Phish */
+    }
+
+    .card span:nth-child(2) {
+      animation: show-letter 2s forwards 0.5s; /* Animation to reveal h */
+    }
+
+    .card span:nth-child(3) {
+      animation: show-letter 2s forwards 1s; /* Animation to reveal i */
+    }
+
+    .card span:nth-child(4) {
+      animation: show-letter 2s forwards 1.5s; /* Animation to reveal s */
+    }
+
+    .card span:nth-child(5) {
+      animation: show-letter 2s forwards 2s; /* Animation to reveal h */
+    }
+
+    .card span:nth-child(6) {
+      animation: show-letter 2s forwards 2.5s; /* Animation to reveal G */
+    }
+
+    .card span:nth-child(7) {
+      animation: show-letter 2s forwards 3s; /* Animation to reveal u */
+    }
+
+    .card span:nth-child(8) {
+      animation: show-letter 2s forwards 3.5s; /* Animation to reveal a */
+    }
+
+    .card span:nth-child(9) {
+      animation: show-letter 2s forwards 4s; /* Animation to reveal r */
+    }
+
+    .card span:nth-child(10) {
+      animation: show-letter 2s forwards 4.5s; /* Animation to reveal D */
+    }
+
+    .card.zoom-out {
+      animation: zoom-out 1.5s forwards 7s; /* Zoom-out animation */
+    }
+
+    .caption {
+      position: absolute;
+      top: calc(50% - 120px);
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: slide-in 2s forwards 7s, fade-in 1s forwards 7s;
+      display: none;
+    }
+
+    .caption span {
+      display: inline-block;
+      animation: bounce-letter 0.5s infinite alternate;
+    }
+
+    @keyframes slide-in {
+      0% {
+        top: calc(100% + 20px);
+      }
+      100% {
+        top: calc(50%);
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes show-letter {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse-border {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px var(--clr-3),
+          0 0 15px var(--clr-4), 0 0 20px var(--clr-5), 0 0 25px var(--clr-4);
+      }
+      100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px var(--clr-4),
+          0 0 15px var(--clr-5), 0 0 20px var(--clr-3), 0 0 100px var(--clr-2);
+      }
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -0.5rem;
+      z-index: -1;
+      background: conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-3),
+        var(--clr-4),
+        var(--clr-5),
+        var(--clr-4),
+        var(--clr-3)
+      );
+      border-radius: inherit;
+      animation: rotation 20s linear infinite;
+    }
+
+    .card::after {
+      filter: blur(3.5rem);
+    }
+
+    @keyframes rotation {
+      0% {
+        --gradient-angle: 0deg;
+      }
+      100% {
+        --gradient-angle: 360deg;
+      }
+    }
+
+    @keyframes zoom-out {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes bounce-letter {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+    .crimson {
+      color: crimson;
+    }
+  </style>
+  <body>
+    <div class="card">
+      <span style="color: crimson"><h3>P</h3></span><span>h</span><span>i</span
+      ><span>s</span><span>h</span><span style="color: crimson"><h3>G</h3></span
+      ><span>u</span><span>a</span><span>r</span><span>d</span>
+    </div>
+    <div class="caption">
+      <h1><span class="crimson">T</span>he</h1>
+      <h1><span class="crimson">P</span>hishing</h1>
+      <h1><span class="crimson">W</span>ebsite</h1>
+      <h1><span class="crimson">D</span>etection</h1>
+    </div>
+    <script>
+      const card = document.querySelector(".card");
+      card.addEventListener("animationend", function (event) {
+        if (event.animationName === "show-letter") {
+          card.classList.add("zoom-out");
+          // Start the caption animation after zoom-out animation
+          const caption = document.querySelector(".caption");
+          /* caption.style.opacity = 1; */
+          caption.style.display = "flex";
+          const captionLetters = document.querySelectorAll(".caption span");
+          captionLetters.forEach((letter) => {
+            letter.style.animationDelay = "0.5s"; // Delay the animation of each letter
+          });
+
+          // Wait for 2 seconds after zoom-out animation ends
+          setTimeout(function () {
+            // Redirect to another route in Flask
+            window.location.href = "/welcome";
+          }, 10000); // 2000 milliseconds = 2 seconds
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='styles/main.css') }}"
+    />
+  </head>
+  <body>
+    <!-- The popup -->
+    <div id="overlay" class="overlay">
+      <div id="popup" class="popup">
+        <!-- Close button -->
+        <span class="close" onclick="closePopup()">&times;</span>
+        <!-- Popup content -->
+        <h2>{{popup_head}}</h2>
+        <p>{{popup_body}}</p>
+        <!-- OK button -->
+        <button class="ok-button" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <script>
+      // Function to open the popup
+      function openPopup() {
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "block";
+      }
+
+      // Function to close the popup
+      function closePopup() {
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "none";
+        window.location.href = "{{ url_for('homepage') }}";
+      }
+    </script>
+  </body>
+</html>

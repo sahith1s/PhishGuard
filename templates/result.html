@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishGuard</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='styles/main.css') }}"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link
+      rel="icon"
+      href="static\images\log2.png"
+      type="image/png"
+      style="max-width: 100; height: auto"
+    />
+  </head>
+  <body class="result">
+    <!-- Static brand -->
+    {% if request.endpoint == 'report' %} {% if report_status %} {% set
+    popup_head = "Report Status" %} {% set popup_body = "Website reported to
+    Google successfully" %} {% else %} {% set popup_head = "Report Status" %} {%
+    set popup_body = "Error in reporting the website to Google" %}
+    <script>
+      $(document).ready(function () {
+        window.location.href = "{{ url_for('homepage') }}";
+      });
+    </script>
+    {% endif %} {% include 'popup.html' %}
+    <script>
+      openPopup();
+    </script>
+
+    {% endif %}
+
+    <!-- Check if url_status is "verify the url" -->
+    {% if url_status == "verify the url" %}
+    <!-- Redirect to homepage if URL is not valid -->
+    <script>
+      $(document).ready(function () {
+        window.location.href = "{{ url_for('homepage') }}";
+      });
+    </script>
+    {% else %}
+    <div class="container">
+      <div class="status1">
+        <!-- Display website status -->
+        <div
+          class="status"
+          style="inline-size: 1000px; overflow-wrap: break-word"
+        >
+          <h1 style="color: red">The website</h1>
+          {{ url }} <br />
+          <h1 style="color: red" name="url" value="{{url_status}}">
+            {{ url_status }}
+          </h1>
+        </div>
+      </div>
+      <div class="button-container">
+        <form action="/homepage" method="POST">
+          <button type="submit" id="homeButton">Check Another Website</button>
+        </form>
+
+        {% if url_status != "is safe to use" %}
+        <!-- Report button -->
+        <form action="/report" method="POST">
+          <input type="hidden" name="url" value="{{url}}" />
+          <button type="submit" id="reportButton">Report</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </body>
+</html>

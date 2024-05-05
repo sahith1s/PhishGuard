@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='styles/main.css') }}"
+    />
+    <title>PhishGuard</title>
+    <link rel="icon" href="static\images\log2.png" type="image/png" style="max-width: 100;height: auto;">
+
+  </head>
+
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <div class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+            <a href="/welcome">
+              <h1>
+                <span>P</span>hish
+                <span>G</span>uard
+              </h1>
+            </a>
+          </div>
+          <div class="nav-list">
+            <div class="hamburger">
+              <div class="bar"></div>
+            </div>
+            <ul>
+              <li><a href="/login" data-after="Login">login</a></li>
+
+              <li><a href="/signup" data-after="Register">Register</a></li>
+
+              <li>
+                <a href="/devloper" data-after="Developers">Developers</a>
+              </li>
+              <li>
+                <a href="/phishdb">Predictions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Header -->
+
+<!-- Hero Section  -->
+<section id="hero">
+  <div class="hero container">
+    <div>
+      <h1>About, <span></span></h1>
+      <h1> <span></span></h1>
+      <h1>Developers <span></span></h1>
+      <a href="#developers" type="button" class="cta">Click-Here</a>
+    </div>
+  </div>
+</section>
+<!-- End Hero Section  -->
+
+<!-- Projects Section -->
+<section id="developers">
+  <div class="developers container">
+    <div class="developers-header">
+      <h1 class="section-title">Developers <span>Profile</span></h1>
+    </div>
+    <div class="all-developers">
+      <div class="developers-item">
+        <div class="developers-info">
+          <h1>Sahith</h1>
+          <h2>Team Lead</h2>
+          <h4 style="color:crimson">Full Stack devloper & Key ML Contributor</h4>
+          <p>As a Software Engineer, I spearheaded the development of PhishGuard's backend infrastructure, emphasizing database management, machine learning integration, and data extraction algorithms. I played a crucial role in enhancing the user interface, facilitating seamless interaction between frontend and backend components. My expertise in backend development and user interface design was pivotal in creating a robust solution for detecting and preventing phishing attacks. Additionally, I managed Flask routing and deployment on AWS EC2 instances, ensuring efficient operation and scalability.</p>   
+
+          </div>
+        <div class="developers-img">
+          <img src="/static/images/sahith.png" style="height:400px;width:400px;margin-left:60px;"alt="Sahith">
+        </div>
+      </div>
+      <div class="developers-item">
+        <div class="developers-info">
+          <h1>Mohan Prakash</h1>
+          <h4 style="color:crimson"> Front-End Developer and ML Extraction Contributor</h4>
+          <p>I played a key role in front-end development for PhishGuard, focusing on crafting intuitive user interfaces and ensuring seamless user experiences. Additionally, I contributed minimally to ML extraction code, bridging the gap between front-end and machine learning functionalities.</p>
+        </div>
+        <div class="developers-img">
+          <img src="/static/images/mohan.png" style="height:400px;width:400px;margin-left:60px;"alt="Mohan Prakash">
+        </div>
+      </div>
+      <div class="developers-item">
+        <div class="developers-info">
+          <h1>Poorna Sandeep</h1>
+          <h4 style="color:crimson"> Front-End Developer and ML Extraction Contributor</h2>
+          <p>I took on a significant role in front-end development for PhishGuard, dedicating my efforts to creating intuitive user interfaces and guaranteeing smooth user experiences. Moreover, I made minor contributions to ML extraction code, facilitating integration between front-end and machine learning capabilities</p>
+        </div>
+        <div class="developers-img">
+          <img src="/static/images/sandeep.png" style="height:400px;width:400px;margin-left:60px;" alt="Purna Sandeep">
+        </div>
+      </div>
+      <div class="developers-item">
+        <div class="developers-info">
+          <h1>Ranjith Kumar</h1>
+          <h4 style="color:crimson">FrontEnd Devloper</h2>
+          <p>I played a vital role in developing PhishGuard's frontend, focusing on translating design mockups into intuitive user interfaces. I ensured seamless interaction and responsiveness across different devices. My attention to detail and creative problem-solving skills contributed to visually appealing and user-friendly interfaces</p>
+        </div>
+        <div class="developers-img">
+          <img src="/static/images/ranjith.png" style="height:500px;width:400px;margin-left:75px;"alt="Ranjith Kumar">
+        </div>
+      </div>
+     
+  </div>
+</section>
+<!-- End Projects Section -->
+
+
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="contact container">
+    <div>
+      <h1 class="section-title">Contact <span>info</span></h1>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+        <div class="contact-info">
+          <h1>Phone</h1>
+          <h2>+919515414879</h2>
+          <h2>+917731833720</h2>
+          <h2>+919553558739</h2>
+          <h2>+917780548227</h2>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+        <div class="contact-info">
+          <h1>Email</h1>
+          <h2>peelasahith.20.it@anits.edu.in</h2>
+          <h2>karrimohanprakash.le.21.it@anits.edu.in</h2>
+          <h2>bhimadapurnasandeep.20.it@anits.edu.in</h2>
+          <h2>karriranjithkumar.20.it@anits.edu.in</h2>
+        </div>
+      </div>
+          <div class="contact-item">
+            <div class="icon">
+              <img
+                src="https://img.icons8.com/bubbles/100/000000/map-marker.png"
+              />
+            </div>
+            <div class="contact-info">
+              <h1>Address</h1>
+              <h2>
+                Sangivalasa - 531162, Bheemunipatnam (Mandal), Visakhapatnam
+                (Dist.)
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="footer container">
+        <p>Copyright © 2024. All rights reserved</p>
+      </div>
+    </section>
+    <!-- End Footer -->
+  </body>
+</html>

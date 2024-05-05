@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishGuard</title>
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='styles/main.css') }}"
+    />
+    <script src="static\script.js"></script>
+    <link rel="icon" href="static\images\log2.png" type="image/png" style="width:100%;height: 100%;">
+
+  </head>
+  <body class="wel" style="background-color: black;">
+    <!-- Header -->
+    <section id="header">
+      <div  class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+            <a href="/welcome">
+              <h1 >
+                <span>P</span>hish
+                <span>G</span>uard
+              </h1>
+            </a>
+          </div>
+          <div class="nav-list">
+            <div class="hamburger">
+              <div class="bar"></div>
+            </div>
+            <ul>
+             
+              <li><a href="/login" data-after="Login">login</a></li>
+
+              <li><a href="/signup" data-after="Register">Register</a></li>
+
+              <li>
+                <a href="/devloper" data-after="Developers">Developers</a>
+              </li>
+              <li>
+                <a href="/phishdb">Predictions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Header -->
+    <br /><br /><br /><br />
+
+    <div class="main-content">
+      <div class="movie-container">
+        <!-- Movie cards go here -->
+        <div class="horizontal-line"></div> <!-- Horizontal line -->
+
+        <div class="movie-card">
+          <div class="movie-info animate">
+          
+               <p>
+                <h1 >Realtime Monitoring</h1><br>
+                PhishGuard dynamically verifies the url using the pretrained machine learning model.
+              </p>
+          </div>
+          <img
+            src="{{url_for('static', filename='/images/welc1.png')}}"
+            alt="Realtime Monitoring"
+            style="width:40%;"
+          />
+        </div>
+        <div class="horizontal-line"></div> <!-- Horizontal line -->
+        <div class="movie-card">
+          <img
+            src="{{url_for('static', filename='/images/user1.png')}}"
+            alt="User Friendly"
+            style="width:40%;"
+          />
+          <div class="movie-info">
+            <p>
+              <h1>User-Friendly Interface</h1><br>
+              Provide an intuitive and user-friendly interface that allows users to easily understand the website status and take appropriate actions.
+            </p>
+          </div>
+        </div>
+        <div class="horizontal-line"></div> <!-- Horizontal line -->
+
+        <div class="movie-card">
+          <div class="movie-info">
+            <p>
+              <h1>Phishing URL Blacklisting</h1><br>
+              PhishGuard automatically reports the phishing urls's to the google.
+            </p>
+          </div>
+          <img
+            src="{{url_for('static', filename='/images/safe.png')}}"
+            alt="Safe Browsing"
+            style="width:40%;"
+          />
+        </div>
+        <div class="horizontal-line"></div> <!-- Horizontal line -->
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2>Questions? Call 9515414879</h2>
+      <nav>
+        <a href="/welcome">Home</a>
+        <a href="/devloper">About</a>
+        <a href="/devloper">Contact</a>
+        <!-- Add more links as needed -->
+      </nav>
+      <p>&copy; 2024 <span style="color: crimson;">P</span>hish<span style="color: crimson;">G</span>uard.</p>
+      <p>All rights reserved</p>
+    </div>
+  </body>
+</html>
+
+
+
