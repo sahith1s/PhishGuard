@@ -26,9 +26,15 @@ To install PhishGuard, follow these steps:
 3. Wait for the results to be displayed, indicating whether the URL is classified as phishing or not.
 4. If the URL is identified as phishing, take appropriate action to avoid accessing it.
 
+## Public Access Link
+
+You can access PhishGuard via the following public link:
+[PhishGuard Public Access](http://ec2-52-66-151-139.ap-south-1.compute.amazonaws.com:5000/)
+
 ## Contributing
 
 Contributions to PhishGuard are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request on GitHub.
+
 
 
 
